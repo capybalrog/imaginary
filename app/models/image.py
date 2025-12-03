@@ -23,5 +23,5 @@ class Image(Base):
     is_active = Column(Boolean, default=True)
 
     # Для облачного хранения
-    storage_type = Column(String(50), default="local")  # local, s3, gcs
-    storage_path = Column(String(500))  # Путь в облачном хранилище
+    storage_type = Column(String(50), default="local")
+    storage_path = Column(String(500))

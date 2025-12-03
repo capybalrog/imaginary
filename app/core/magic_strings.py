@@ -8,6 +8,8 @@ BASE_TEXTS: dict = {
     "author": "Capybalrog",
 }
 
-ERRORS: dict = {}
+ERRORS: dict = {
+    "no_images": "Картинки не найдены. Возможно, они потерялись в сюжетной дыре."
+}
 
 OTHER: dict = {"duck": "кря"}

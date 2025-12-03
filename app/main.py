@@ -4,6 +4,7 @@ import fastapi_swagger_dark as fsd
 from fastapi import APIRouter, FastAPI
 from fastapi.staticfiles import StaticFiles
 
+from app.admin import init_admin
 from app.api.v1 import images
 from app.core.magic_strings import BASE_TEXTS
 from app.services.load_images import load_images
@@ -14,6 +15,8 @@ app = FastAPI(
     description=BASE_TEXTS["app_description"],
     docs_url=None,
 )
+
+init_admin(app)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.include_router(images.router, prefix="/api/v1/images", tags=["images"])

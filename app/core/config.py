@@ -11,10 +11,11 @@ class Settings:
     PROJECT_NAME: str = BASE_TEXTS["app_title"]
     DB_USER: str = os.getenv("DB_USER")
     DB_PASSWORD: str = os.getenv("DB_PASSWORD")
-    DB_HOST: str = os.getenv("DB_HOST")
+    DB_HOST: str = os.getenv("DB_HOST", "db")
     DB_PORT: str = os.getenv("DB_PORT")
     DB_NAME: str = os.getenv("DB_NAME")
-    DATABASE_URL: str = (
+    DATABASE_URL: str = os.getenv(
+        "DB_URL",
         f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
     )
 

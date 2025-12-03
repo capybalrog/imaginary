@@ -26,7 +26,7 @@ async def get_random_image(db: AsyncSession = Depends(get_db)):
         images = result.scalars().all()
     except Exception as e:
         logger.error(e)
-        raise HTTPException(status_code=500, detail=e)
+        raise HTTPException(status_code=418, detail=ERRORS["something_went_wrong"])
 
     if not images:
         raise HTTPException(status_code=404, detail=ERRORS["no_images"])
@@ -36,4 +36,3 @@ async def get_random_image(db: AsyncSession = Depends(get_db)):
         filename=random_image.filename,
         file_path=random_image.file_path
     )
-
